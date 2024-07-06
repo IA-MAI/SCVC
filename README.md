@@ -2,17 +2,29 @@
 
 C++ implementation of the paper: [Efficient Single Correspondence Voting for Point Cloud Registration](https://doi.org/10.1109/TIP.2024.3374120)
 
+
+## Updates and TODOs:
+- [x] test the code 
+- [x] fix cmake and remove relative paths
+- [x] adding user input arguments 
+- [x] clean 
+- [ ] fix linux veriosn
+- [ ] update to use recent c++ 
+- [ ] add simple example: 
+  - input 2 3d objects
+  - output: registered object + displacement/deformation field
+
 ## Introduction
-We are actively updating the code and will open source the paper's code after the article is officially released.
+What the code does? 
 
 ## Build
-1.Before compiling, make sure CMake and VS are available.
 
-2.The available process is to directly use CMake to generate the sln of vs, and then use vs to compile the code. The code relies on three open source libraries: Eigen, FLANN, and ICP_Princeton, which we have added to the source code.
+1. Before compiling, make sure CMake and VS are available. One can use Visual studio community edition and VS Code with Cmake extenstion
+2. The available process is to directly use CMake to generate the sln of vs, and then use vs to compile the code. The code relies on three open source libraries: Eigen, FLANN, and ICP_Princeton, which we have added to the source code.
+3. Set the path parameters in the main function according to the path of the registration data. The datasets links are provided in the next steps
+ 
 
-3.Set the path parameters in the main function according to the path of the registration data.
-
-Code has been tested with  Win11, VS2019, CMake 3.24, and OpenMP.
+The Code has been tested with  Win11, VS2022, CMake 3.24, and OpenMP.
 
 ## Datasets download
 
@@ -106,3 +118,4 @@ If you find this code useful for your work or use it in your project, please con
 ## Acknowledgements
 
 - [A Symmetric Objective Function for ICP](https://gfx.cs.princeton.edu/pubs/Rusinkiewicz_2019_ASO/)
+

@@ -6,10 +6,17 @@
 #include <vector>
 #include <cmath>
 #include <float.h>
+
 #include <Eigen/Core>
 #include <Eigen/Eigenvalues>
 #include <Eigen/SVD>
 #include <Eigen/Geometry>
+/*
+#include "scvcLibs/eigen-3.4.0/Eigen/Core"
+#include "scvcLibs/eigen-3.4.0/Eigen/Eigenvalues"
+#include "scvcLibs/eigen-3.4.0/Eigen/SVD"
+#include "scvcLibs/eigen-3.4.0/Eigen/Geometry"
+*/
 
 
 /* Each point in a point cloud is loaded as a line vector, 

@@ -6,10 +6,11 @@
 #include <vector>
 //#include "registration_ObjectOpse.h"
 //#include "Eigen/Dense"
-#include "../3rdParty/eigen-3.4.0/Eigen/Dense"
+#include "scvcLibs/eigen-3.4.0/Eigen/Dense"
+#include "scvcLibs/kd_tree/FLANN/flann.hpp"
 #include "registration_stdafx.h"
 #include "registration_helpers.hpp"
-#include"../3rdParty/kd_tree/FLANN/flann.hpp"
+
 #include<omp.h>
 #include <string>
 

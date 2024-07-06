@@ -6,12 +6,6 @@
 
 namespace scvc
 {
-
-
-
-
-
-
   std::vector<std::string> split(const std::string &text, char sep) {
   std::vector<std::string> tokens;
   std::size_t start = 0, end = 0;
@@ -43,7 +37,7 @@ KDTree* BuildKDTree(const  MatrixXf & data )
 		//std::cout << std::endl;
 	}
 		
-	//KDTreeSingleIndexParams ÎªËÑË÷×î´óÒ¶×ÓÊý
+	//KDTreeSingleIndexParams Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ï¿½ï¿½ï¿½
 	KDTree* tree = new KDTree(dataset_mat, flann::KDTreeSingleIndexParams(64));
 	tree->buildIndex();
 	//std::cout << "test..." << tree->size() << std::endl;
@@ -196,7 +190,7 @@ MatrixXf normal(MatrixXf pc, Vector3f centerpoint, int nei, double o)
 
 MatrixXf loadPLYSimple_bin(const char* fileName, int withNormals)
 {
-	//¶ÁÈëÊ±Ç°Ãæ6ÁÐÎª×ø±êºÍ·¨ÏòÁ¿
+	//ï¿½ï¿½ï¿½ï¿½Ê±Ç°ï¿½ï¿½6ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	int numVertices = 0;
 	int numCols = 3;
@@ -251,7 +245,7 @@ MatrixXf loadPLYSimple_bin(const char* fileName, int withNormals)
 	MatrixXf cloud(numVertices, withNormals ? 6 : 3);
 	//Eigen::Matrix<float,numVertices, withNormals ? 6 : 3,RowMajor> eigMatRow;
 
-	std::cout << "Ä£ÐÍµãÊý£º" << numVertices << "  ·¨ÏòÁ¿×´Ì¬£º" << withNormals << std::endl;
+	std::cout << "Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½" << numVertices << "  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½" << withNormals << std::endl;
 	
 	int n = 0;
 	if (withNormals==1)
@@ -267,7 +261,7 @@ MatrixXf loadPLYSimple_bin(const char* fileName, int withNormals)
 					cloud(i, col) = fea[col];
 				}
 
-				if (withNormals)//Ä£ÐÍ¹éÒ»»¯
+				if (withNormals)//Ä£ï¿½Í¹ï¿½Ò»ï¿½ï¿½
 				{
 					// normalize to unit norm
 					double norm = sqrt(cloud(i, 3) * cloud(i, 3) + cloud(i, 4) * cloud(i, 4) + cloud(i, 5) * cloud(i, 5));
@@ -308,7 +302,7 @@ MatrixXf loadPLYSimple_bin(const char* fileName, int withNormals)
 
 MatrixXf loadPLYSimple(const char* fileName, int withNormals)
 {
-   //¶ÁÈëÊ±Ç°Ãæ6ÁÐÎª×ø±êºÍ·¨ÏòÁ¿
+   //ï¿½ï¿½ï¿½ï¿½Ê±Ç°ï¿½ï¿½6ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½
  
    int numVertices = 0;
    int numCols = 3;
@@ -363,7 +357,7 @@ MatrixXf loadPLYSimple(const char* fileName, int withNormals)
   MatrixXf cloud(numVertices, withNormals ? 6 : 3);
   //Eigen::Matrix<float,numVertices, withNormals ? 6 : 3,RowMajor> eigMatRow;
 
-  std::cout<<"Ä£ÐÍµãÊý£º" << numVertices<<"  ·¨ÏòÁ¿×´Ì¬£º" << withNormals<<std::endl;
+  std::cout<<"Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½" << numVertices<<"  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½" << withNormals<<std::endl;
   for (int i = 0; i < numVertices; i++)
   {
    
@@ -377,7 +371,7 @@ MatrixXf loadPLYSimple(const char* fileName, int withNormals)
       float tmp;
       ifs >> tmp;
     }
-    if (withNormals)//Ä£ÐÍ¹éÒ»»¯
+    if (withNormals)//Ä£ï¿½Í¹ï¿½Ò»ï¿½ï¿½
     {
       // normalize to unit norm
       double norm = sqrt(cloud(i, 3)* cloud(i, 3) + cloud(i, 4)* cloud(i, 4) + cloud(i, 5)* cloud(i, 5));
@@ -449,7 +443,7 @@ void writePLY(MatrixXf PC, const char* FileName)
 
 MatrixXf StatisticsDenoise(MatrixXf& pc_s, int NumNeighbors, double rate)
 {
-	//±ê×¼ÕýÌ¬·Ö²¼
+	//ï¿½ï¿½×¼ï¿½ï¿½Ì¬ï¿½Ö²ï¿½
 	double sta_z = 1.0;
 	if (rate < 0.99999)
 	{
@@ -532,12 +526,12 @@ MatrixXf StatisticsDenoise(MatrixXf& pc_s, int NumNeighbors, double rate)
 		distance(i) = d /(NumNeighbors-1);
 	}
 	
-	//È¥Ôë
+	//È¥ï¿½ï¿½
 	double const mean = distance.mean();
 	double const std_dev = sqrt((distance.array() - mean).square().sum() / (n - 1));
 	
 	
-	//ÖÃÐÅÇø¼äÉèÖÃÎª85
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª85
 	double max_distance = mean + sta_z * std_dev;
 
 	std::cout << mean << " " << std_dev << " " << sta_z<<" "<< max_distance << std::endl;
@@ -577,20 +571,20 @@ MatrixXf samplePCByQuantization(MatrixXf pc, Vector2f& xrange, Vector2f& yrange,
 
 
 	
-	float xr = xrange[1] - xrange[0];//xµÄ¿ç¶È
+	float xr = xrange[1] - xrange[0];//xï¿½Ä¿ï¿½ï¿½
 	float yr = yrange[1] - yrange[0];
 	float zr = zrange[1] - zrange[0];
 
 	int numPoints = 0;
 
-	int xnumSamplesDim = (int)(xr / sampleStep);//²ÉÑù¿í¶ÈÊý
-	int ynumSamplesDim = (int)(yr / sampleStep);//²ÉÑù¿í¶ÈÊý
-	int znumSamplesDim = (int)(zr / sampleStep);//²ÉÑù¿í¶ÈÊý
+	int xnumSamplesDim = (int)(xr / sampleStep);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int ynumSamplesDim = (int)(yr / sampleStep);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int znumSamplesDim = (int)(zr / sampleStep);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	
 
 	std::vector< std::vector<int> > scene_map;
-	scene_map.resize((xnumSamplesDim + 1)*(ynumSamplesDim + 1)*(znumSamplesDim + 1));//ÉèÖÃÐÐÊý
+	scene_map.resize((xnumSamplesDim + 1)*(ynumSamplesDim + 1)*(znumSamplesDim + 1));//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 
 																				  //std::cout << numSamplesDim  << "  vvvv " << map.size()<< std::endl;
@@ -598,19 +592,19 @@ MatrixXf samplePCByQuantization(MatrixXf pc, Vector2f& xrange, Vector2f& yrange,
 
 	for (int i = 0; i<pc.rows(); i++)
 	{
-		const int xCell = (int)((float)xnumSamplesDim*(pc(i, 0) - xrange[0]) / xr);//¼ÆËãxÖáË÷ÒýÏÂ±ê
-		const int yCell = (int)((float)ynumSamplesDim*(pc(i, 1) - yrange[0]) / yr);//¼ÆËãyÖáË÷ÒýÏÂ±ê
-		const int zCell = (int)((float)znumSamplesDim*(pc(i, 2) - zrange[0]) / zr);//¼ÆËãzÖáË÷ÒýÏÂ±ê
-		const int index = xCell*ynumSamplesDim*znumSamplesDim + yCell*znumSamplesDim + zCell;//¼ÆËãÔÚ¶þÎ¬ÏòÁ¿×éÖÐµÄÏÂ±ê
+		const int xCell = (int)((float)xnumSamplesDim*(pc(i, 0) - xrange[0]) / xr);//ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â±ï¿½
+		const int yCell = (int)((float)ynumSamplesDim*(pc(i, 1) - yrange[0]) / yr);//ï¿½ï¿½ï¿½ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â±ï¿½
+		const int zCell = (int)((float)znumSamplesDim*(pc(i, 2) - zrange[0]) / zr);//ï¿½ï¿½ï¿½ï¿½zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â±ï¿½
+		const int index = xCell*ynumSamplesDim*znumSamplesDim + yCell*znumSamplesDim + zCell;//ï¿½ï¿½ï¿½ï¿½ï¿½Ú¶ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½Â±ï¿½
 
-		scene_map[index].push_back(i);//°ÑÏÂ±êÑ¹Èë¶þÎ¬ÏòÁ¿×é
+		scene_map[index].push_back(i);//ï¿½ï¿½ï¿½Â±ï¿½Ñ¹ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 									  //  }
 	}
 	//std::cout << numSamplesDim << "  vvvv " << map.size() << std::endl;
 	//std::cin >> m;
 	for (unsigned int i = 0; i<scene_map.size(); i++)
 	{
-		numPoints += (scene_map[i].size()>0);//¼ÆËã¶þÎ¬ÏòÁ¿×éÐÐ·ÇÁãµÄÐÐÊý
+		numPoints += (scene_map[i].size()>0);//ï¿½ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 	//std::cout << numPoints;
 	//int ii;
@@ -623,20 +617,20 @@ MatrixXf samplePCByQuantization(MatrixXf pc, Vector2f& xrange, Vector2f& yrange,
 		double px = 0, py = 0, pz = 0;
 		double nx = 0, ny = 0, nz = 0;
 
-		std::vector<int> curCell = scene_map[i];//»ñµÃÃ¿¸öµ¥Ôª¸ñÄÚµãµÄË÷ÒýÁÐ±í
-		int cn = (int)curCell.size();//ÁÐ±í´óÐ¡
+		std::vector<int> curCell = scene_map[i];//ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+		int cn = (int)curCell.size();//ï¿½Ð±ï¿½ï¿½ï¿½Ð¡
 		if (cn>0)
 		{
-			if (weightByCenter)//ÓÐ¼ÓÈ¨¼ÆËã
+			if (weightByCenter)//ï¿½Ð¼ï¿½È¨ï¿½ï¿½ï¿½ï¿½
 			{
 				int xCell, yCell, zCell;
 				double xc, yc, zc;
 				double weightSum = 0;
 		
-				zCell = i % znumSamplesDim;//¼ÆËãµãÔÆµãµÄÏÂ±êË÷Òý
+				zCell = i % znumSamplesDim;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½Â±ï¿½ï¿½ï¿½ï¿½ï¿½
 				yCell = ((i - zCell) / znumSamplesDim) % ynumSamplesDim;
 				xCell = ((i - zCell - yCell*ynumSamplesDim) / (ynumSamplesDim*znumSamplesDim));
-				xc = ((double)xCell + 0.5) * (double)xr / xnumSamplesDim + (double)xrange[0];//¼ÆËãµ¥Ôª¸ñÖÐÐÄ×ø±ê
+				xc = ((double)xCell + 0.5) * (double)xr / xnumSamplesDim + (double)xrange[0];//ï¿½ï¿½ï¿½ãµ¥Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				yc = ((double)yCell + 0.5) * (double)yr / ynumSamplesDim + (double)yrange[0];
 				zc = ((double)zCell + 0.5) * (double)zr / znumSamplesDim + (double)zrange[0];
 
@@ -650,7 +644,7 @@ MatrixXf samplePCByQuantization(MatrixXf pc, Vector2f& xrange, Vector2f& yrange,
 					const double d = sqrt(dx*dx + dy*dy + dz*dz);
 					double w = 0;
 
-					if (d>EPS)//²ÉÓÃ·´¾àÀë¼ÓÈ¨
+					if (d>EPS)//ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨
 					{
 						// it is possible to use different weighting schemes.
 						// inverse weigthing was just good for me
@@ -680,7 +674,7 @@ MatrixXf samplePCByQuantization(MatrixXf pc, Vector2f& xrange, Vector2f& yrange,
 			{
 				for (int j = 0; j<cn; j++)
 				{
-					int ptInd = curCell[j];//»ñµÃµãÔÆµãµÄË÷Òý
+					int ptInd = curCell[j];//ï¿½ï¿½Ãµï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					px += (double)pc(ptInd, 0);
 					py += (double)pc(ptInd, 1);
 					pz += (double)pc(ptInd, 2);
@@ -711,7 +705,7 @@ MatrixXf samplePCByQuantization(MatrixXf pc, Vector2f& xrange, Vector2f& yrange,
 			pcSampled(c, 1) = (float)py;
 			pcSampled(c, 2) = (float)pz;
 
-			// normalize the normals ·¨Ïò¹éÒ»»¯  ·¨ÏòÎªÁã´¦Àí
+			// normalize the normals ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½Îªï¿½ã´¦ï¿½ï¿½
 			double norm = sqrt(nx*nx + ny*ny + nz*nz);
 
 			if (norm>EPS)
@@ -727,7 +721,7 @@ MatrixXf samplePCByQuantization(MatrixXf pc, Vector2f& xrange, Vector2f& yrange,
 			curCell.clear();
 		}
 	}
-	//std::cout << c << "  ÏÂ²ÉÑùÈ¥µô·¨ÏòÎª0  " << numPoints << std::endl;
+	//std::cout << c << "  ï¿½Â²ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª0  " << numPoints << std::endl;
 	pcSampled.conservativeResize(c, 6);
 	return pcSampled;
 }

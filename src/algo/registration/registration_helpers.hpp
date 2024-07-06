@@ -3,12 +3,12 @@
 
 
 
-#include "../3rdParty/kd_tree/FLANN/algorithms/dist.h"
-#include"../3rdParty/kd_tree/FLANN/flann.hpp"
+#include "scvcLibs/kd_tree/FLANN/algorithms/dist.h"
+#include "scvcLibs/kd_tree/FLANN/flann.hpp"
 //#include "Eigen/Dense"
 
 #include <sstream>  // flann dependency, needed in precomp now
-#include"../3rdParty/eigen-3.4.0/Eigen/Dense"
+#include "scvcLibs/eigen-3.4.0/Eigen/Dense"
 
 
 using namespace Eigen;

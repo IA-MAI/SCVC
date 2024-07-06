@@ -6,10 +6,10 @@
 #include <algorithm>
 
 
-#include"../ICP_Princeton/TriMesh.h"
-#include"../ICP_Princeton/TriMesh_algo.h"
-#include"../ICP_Princeton/ICP.h"
-#include"../ICP_Princeton/KDtree.h"
+#include "ICP_Princeton/TriMesh.h"
+#include "ICP_Princeton/TriMesh_algo.h"
+#include "ICP_Princeton/ICP.h"
+#include "ICP_Princeton/KDtree.h"
 
 
 using namespace std;
